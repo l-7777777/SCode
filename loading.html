@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(https://wallpaperplay.com/walls/full/d/4/8/304479.jpg);
+            overflow: hidden;
+            font-family: 'Electrolize', sans-serif;
+        }
+        
+        @keyframes progressbar {
+            from {
+                width: 0%;
+            }
+            to {
+                width: 100%;
+            }
+        }
+        
+        div#progress {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 2%;
+            width: 100%;
+            background-color: skyblue;
+            animation-name: progressbar;
+            animation-duration: 5s;
+            animation-iteration-count: 2;
+        }
+        
+        h1#title {
+            height: 98%;
+            width: 100%;
+            line-height: 98vh;
+            text-align: center;
+            font-size: 100px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">SCode</h1>
+    <div id="progress"></div>
+    <script src="commands.js"></script>
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                launch("welcome.py");
+                kill("loading.py");
+            }, 11000);
+        }
+    </script>
+</body>
+
+</html>

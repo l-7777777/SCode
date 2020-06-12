@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        @keyframes slideoutright {
+            from {
+                left: 0%
+            }
+            to {
+                left: -100%
+            }
+        }
+        
+        @keyframes slideinleft {
+            from {
+                left: 100%
+            }
+            to {
+                left: 0%
+            }
+        }
+        
+        @keyframes slideinright {
+            from {
+                left: -100%
+            }
+            to {
+                left: 0%
+            }
+        }
+        
+        @keyframes slideoutleft {
+            from {
+                left: 0%
+            }
+            to {
+                left: 100%
+            }
+        }
+        
+        body {
+            font-family: 'Electrolize', sans-serif;
+            background-color: #232323;
+            color: white;
+        }
+        
+        h1#title {
+            width: 50%;
+            height: 100%;
+            margin: 0px;
+            font-size: 100px;
+        }
+        
+        button.sidebarbutton {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 25px;
+            width: 100%;
+            height: 15%;
+            text-align: left;
+            margin: none;
+        }
+        
+        button.sidebarbutton:hover {
+            background-color: #303030;
+        }
+        
+        #main {
+            position: fixed;
+            animation-duration: 1s;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        #newproject {
+            position: fixed;
+            left: 100%;
+            animation-duration: 1s;
+            width: 100%;
+            height: 100vh;
+            padding: 0vh 1vh;
+        }
+        
+        input {
+            border: none;
+            border-radius: 5px;
+            padding: 1vh;
+            margin: 1vh;
+        }
+        
+        button.back {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+        
+        button.forward {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <h1 id="title">SCode</h1>
+        <button class="sidebarbutton" onclick="document.getElementById('main').style.animationName = 'slideoutright'; document.getElementById('main').style.left = '-100%'; document.getElementById('newproject').style.animationName = 'slideinleft'; document.getElementById('newproject').style.left = '0%'"><i class="fa fa-plus"></i> New Project</button>
+        <button class="sidebarbutton" onclick="launch('open.py'); kill('welcome.py')"><i class="fa fa-folder"></i> Open Project</button>
+    </div>
+    <div id="newproject">
+        <label for="name">Product Name:</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="orgname">Organization Name:</label>
+        <input type="text" name="orgname" id="orgname"><br>
+        <label for="orgid">Organization Identifier:</label>
+        <input type="text" name="orgid" id="orgid"><br>
+        <label for="bundleid">Bundle Identifier:</label>
+        <input type="text" name="bundleid" id="orgid"><br>
+        <button class="back" onclick="document.getElementById('main').style.animationName = 'slideinright'; document.getElementById('main').style.left = '0%'; document.getElementById('newproject').style.animationName = 'slideoutleft'; document.getElementById('newproject').style.left = '100%'">Back</button>
+        <button class="forward" onclick="create(document.getElementById('name').value, document.getElementById('orgname').value), document.getElementById('orgid').value, document.getElementById('bundleid').value">Create</button>
+    </div>
+    <script src="commands.js"></script>
+</body>
+
+</html>
